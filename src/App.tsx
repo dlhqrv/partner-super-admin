@@ -8,6 +8,10 @@ import { RequireGuest } from './components/RequireGuest'
 import { DashboardLayout } from './layouts/DashboardLayout'
 import { LoginPage } from './pages/LoginPage'
 import { DashboardOverviewPage } from './pages/DashboardOverviewPage'
+import { AdminAccountsPage } from './pages/AdminAccountsPage'
+import { AdminInvitePage } from './pages/AdminInvitePage'
+import { AuditLogsPage } from './pages/AuditLogsPage'
+import { InviteSetupPage } from './pages/InviteSetupPage'
 import './App.css'
 
 function RootRedirect() {
@@ -19,6 +23,7 @@ function RootRedirect() {
 function AppRoutes() {
   return (
     <Routes>
+      <Route path="/invite/setup" element={<InviteSetupPage />} />
       <Route path="/" element={<RootRedirect />} />
       <Route element={<RequireGuest />}>
         <Route path="/login" element={<LoginPage />} />
@@ -26,6 +31,9 @@ function AppRoutes() {
       <Route element={<RequireAuth />}>
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<DashboardOverviewPage />} />
+          <Route path="audit" element={<AuditLogsPage />} />
+          <Route path="admins" element={<AdminAccountsPage />} />
+          <Route path="admins/new" element={<AdminInvitePage />} />
         </Route>
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />

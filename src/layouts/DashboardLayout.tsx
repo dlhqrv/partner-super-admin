@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { NavLink, Outlet, useNavigate } from 'react-router-dom'
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { api } from '../lib/api'
 import { loadSession } from '../lib/session'
 import { useAdminSession } from '../contexts/AdminSessionContext'
@@ -19,6 +19,14 @@ function readSidebarCollapsed(): boolean {
 export function DashboardLayout() {
   const { session, setSession } = useAdminSession()
   const navigate = useNavigate()
+  const location = useLocation()
+  const titlebarLabel = location.pathname.startsWith('/dashboard/audit')
+    ? 'Audit log'
+    : location.pathname.startsWith('/dashboard/admins/new')
+      ? 'Invite admin'
+      : location.pathname.startsWith('/dashboard/admins')
+        ? 'Admins'
+        : 'Dashboard'
   const isNarrow = useMediaQuery('(max-width: 768px)')
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [sidebarCollapsed, setSidebarCollapsed] = useState(readSidebarCollapsed)
@@ -108,6 +116,28 @@ export function DashboardLayout() {
             </span>
             <span className="sadmin-nav-item__text">Overview</span>
           </NavLink>
+          <NavLink
+            to="/dashboard/audit"
+            className={({ isActive }) => `sadmin-nav-item${isActive ? ' is-active' : ''}`}
+            onClick={() => setSidebarOpen(false)}
+            title="Audit log"
+          >
+            <span className="sadmin-nav-item__icon" aria-hidden="true">
+              <AuditIcon />
+            </span>
+            <span className="sadmin-nav-item__text">Audit</span>
+          </NavLink>
+          <NavLink
+            to="/dashboard/admins"
+            className={({ isActive }) => `sadmin-nav-item${isActive ? ' is-active' : ''}`}
+            onClick={() => setSidebarOpen(false)}
+            title="Admin accounts"
+          >
+            <span className="sadmin-nav-item__icon" aria-hidden="true">
+              <UsersIcon />
+            </span>
+            <span className="sadmin-nav-item__text">Admins</span>
+          </NavLink>
         </nav>
 
         <div className="sadmin-sidebar__footer">
@@ -141,7 +171,7 @@ export function DashboardLayout() {
             <span />
             <span />
           </button>
-          <span className="sadmin-titlebar__label">Dashboard</span>
+          <span className="sadmin-titlebar__label">{titlebarLabel}</span>
         </header>
 
         <main className="sadmin-editor">
@@ -186,6 +216,28 @@ function OverviewIcon() {
       <rect x="14" y="3" width="7" height="5" rx="1" />
       <rect x="14" y="11" width="7" height="10" rx="1" />
       <rect x="3" y="15" width="7" height="6" rx="1" />
+    </svg>
+  )
+}
+
+function UsersIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden="true">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+    </svg>
+  )
+}
+
+function AuditIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden="true">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <polyline points="14 2 14 8 20 8" />
+      <line x1="16" y1="13" x2="8" y2="13" />
+      <line x1="16" y1="17" x2="8" y2="17" />
+      <line x1="10" y1="9" x2="8" y2="9" />
     </svg>
   )
 }

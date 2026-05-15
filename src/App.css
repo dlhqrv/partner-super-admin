@@ -490,3 +490,235 @@
   justify-content: flex-end;
   gap: 8px;
 }
+
+.sadmin-muted {
+  margin: 0 0 8px;
+  font-size: 12px;
+  color: var(--sadmin-text-dim);
+  line-height: 1.45;
+}
+
+.sadmin-error {
+  margin: 0 0 12px;
+  padding: 8px 10px;
+  font-size: 12px;
+  color: var(--sadmin-danger);
+  background: var(--sadmin-danger-bg);
+  border: 1px solid #f5c2bc;
+  border-radius: 3px;
+}
+
+.sadmin-callout {
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  background: #f8f9fa;
+  border: 1px solid var(--sadmin-border);
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.sadmin-callout--success {
+  background: #ecfdf3;
+  border-color: #b6e0c3;
+}
+
+.sadmin-pre--tight {
+  margin-top: 8px;
+  max-height: 120px;
+}
+
+.sadmin-table-wrap {
+  overflow: auto;
+  border: 1px solid var(--sadmin-border);
+  border-radius: 4px;
+  background: #fff;
+}
+
+.sadmin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.sadmin-table th,
+.sadmin-table td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--sadmin-border);
+  vertical-align: top;
+}
+
+.sadmin-table th {
+  font-weight: 600;
+  background: #fafafa;
+  white-space: nowrap;
+}
+
+.sadmin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.sadmin-auth__panel--wide {
+  max-width: 440px;
+}
+
+.sadmin-auth__email {
+  word-break: break-all;
+}
+
+.sadmin-qr-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0 12px;
+}
+
+.sadmin-backup-list {
+  margin: 0 0 12px;
+  padding-left: 18px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.sadmin-field--row {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.sadmin-field--row .sadmin-field__label {
+  padding-top: 2px;
+  font-weight: 500;
+}
+
+/* ---------------------------------------------------------------------------
+   Audit log (live tail)
+   --------------------------------------------------------------------------- */
+.sadmin-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 11px;
+  background: #f3f3f3;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.sadmin-page--audit .sadmin-page__header {
+  margin-bottom: 8px;
+}
+
+.sadmin-audit-header__titles {
+  margin-bottom: 10px;
+}
+
+.sadmin-audit-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px 16px;
+  margin-bottom: 6px;
+}
+
+.sadmin-audit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: min(280px, 100%);
+}
+
+.sadmin-audit-field__label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--sadmin-text-dim);
+}
+
+.sadmin-audit-input {
+  height: 30px;
+  padding: 0 8px;
+  font-size: 13px;
+  border: 1px solid var(--sadmin-border);
+  border-radius: 3px;
+  min-width: 200px;
+}
+
+.sadmin-audit-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.sadmin-audit-toggle input {
+  margin: 0;
+}
+
+.sadmin-audit-live-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #fff;
+  background: #107c10;
+  border-radius: 999px;
+}
+
+.sadmin-audit-updated {
+  margin-top: 4px;
+}
+
+.sadmin-audit-table-wrap {
+  max-height: min(72vh, 900px);
+}
+
+.sadmin-audit-table .sadmin-audit-col-time {
+  white-space: nowrap;
+  width: 1%;
+}
+
+.sadmin-audit-table .sadmin-audit-col-event {
+  white-space: nowrap;
+  width: 1%;
+}
+
+.sadmin-audit-table .sadmin-audit-col-partner {
+  font-size: 11px;
+  word-break: break-all;
+  max-width: 120px;
+}
+
+.sadmin-audit-details {
+  max-width: 420px;
+}
+
+.sadmin-audit-details__summary {
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--sadmin-text-dim);
+}
+
+.sadmin-audit-json {
+  margin: 6px 0 0;
+  padding: 8px;
+  max-height: 140px;
+  overflow: auto;
+  font-size: 11px;
+  line-height: 1.35;
+  background: #f8f9fa;
+  border: 1px solid var(--sadmin-border);
+  border-radius: 3px;
+}
+
+.sadmin-audit-table .sadmin-audit-col-ip {
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.sadmin-audit-table .sadmin-audit-col-ua {
+  font-size: 11px;
+  max-width: 200px;
+  word-break: break-word;
+}
