@@ -41,7 +41,7 @@ export function AdminInvitePage() {
     <div className="sadmin-page">
       <div className="sadmin-page__header">
         <h2 className="sadmin-page__title">Invite admin</h2>
-        <p className="sadmin-page__meta">Creates an invited account and a 72-hour setup link (email integration pending).</p>
+        <p className="sadmin-page__meta">Creates an invited account and emails a 72-hour setup link.</p>
         <Link to="/dashboard/admins" className="sadmin-btn sadmin-btn--secondary">
           Back to list
         </Link>
@@ -50,7 +50,7 @@ export function AdminInvitePage() {
       {done && (
         <div className="sadmin-callout sadmin-callout--success">
           <strong>Invite created</strong>
-          <p className="sadmin-muted">The admin appears as &quot;invited&quot; in the list. Production email delivery is not wired yet.</p>
+          <p className="sadmin-muted">The admin appears as &quot;invited&quot; in the list. A setup email was sent to their inbox.</p>
           {devUrl && (
             <>
               <p className="sadmin-muted">Setup link (only when ADMIN_INVITE_RETURN_URL=1 on API):</p>
